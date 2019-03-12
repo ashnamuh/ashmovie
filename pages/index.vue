@@ -1,33 +1,31 @@
 <template>
   <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        ashmovie
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <div class="home">
+      <h1>genre list</h1>
+      <ul>
+        <li v-for="genre in genres" :key="genre.id">{{ genre.name }}</li>
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import axios from 'axios'
+
+console.log(CONFIG)
 
 export default {
   components: {
     AppLogo
+  },
+  async asyncData ({ params }) {
+    let { data } = await axios.get(`${CONFIG.urls.api}genre/movie/list?api_key=${CONFIG.apiKey}`)
+    console.log(data)
+    return { genres: data.genres }
+  },
+  mounted() {
+    console.log(this)
   }
 }
 </script>
