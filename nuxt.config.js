@@ -38,7 +38,8 @@ module.exports = {
     },
     plugins: [
       new ConfigWebpackPlugin()
-    ]
+    ],
+    vendor: ['axios']
   }
 }
 
