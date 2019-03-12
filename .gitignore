@@ -1,6 +1,10 @@
 # dependencies
 node_modules
 
+# configurations
+config/development.json
+config/production.json
+
 # logs
 npm-debug.log
 

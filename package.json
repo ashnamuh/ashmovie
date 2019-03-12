@@ -13,6 +13,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "config": "^3.0.1",
+    "config-webpack": "^1.0.4",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
